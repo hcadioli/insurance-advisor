@@ -30,4 +30,4 @@ const InsuranceAdviceSchema = Object.freeze({
 module.exports = {
   InsuranceLevels,
   InsuranceAdviceSchema
-}
+};

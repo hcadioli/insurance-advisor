@@ -1,22 +1,8 @@
-function serializeSingleInsuranceAdvice(user) {
-  return {
-    auto: user.auto,
-    disability: user.disability,
-    home: user.home,
-    life: user.income,
-  };
-};
+const { InsuranceAdvice: { InsuranceAdviceSchema } } = require('../../domain/insurance-advice');
+const { createSerializerBasedOn } = require('./serializer');
 
-function serialize(data) {
-  if (!data) {
-    throw new Error('Expect data to be not undefined nor null');
-  }
-  if (Array.isArray(data)) {
-    return data.map(serializeSingleInsuranceAdvice);
-  }
-  return serializeSingleInsuranceAdvice(data);
-}
+const InsuranceAdvice = createSerializerBasedOn(
+  InsuranceAdviceSchema.properties
+);
 
-module.exports = {
-  serialize
-}
+module.exports = InsuranceAdvice;

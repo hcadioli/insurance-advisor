@@ -11,7 +11,7 @@ const server = Object.freeze({
     name: 'INSURANCE-ADVISOR',
     level: env.get('LOG_LEVEL').asString() || 'info',
   },
-  errorAcronym: 'INS',
+  errorPrefix: 'INS',
 });
 
 module.exports = server;

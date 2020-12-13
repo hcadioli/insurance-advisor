@@ -1,6 +1,6 @@
 const httpStatus = require('http-status-codes');
-const { UserPersonalInformationSchema } = require('../../../../domain/personal-information');
-const { InsuranceAdviceSchema } = require('../../../../domain/insurance-advice');
+const { PersonalInformation } = require('../../../../domain/personal-information');
+const { InsuranceAdvice } = require('../../../../domain/insurance-advice');
 
 module.exports = Object.freeze({
   tags: ['InsuranceAdvice'],
@@ -11,7 +11,7 @@ module.exports = Object.freeze({
     description: 'User Personal Information',
     content: {
       'application/json': {
-        schema: UserPersonalInformationSchema,
+        schema: PersonalInformation.PersonalInformationSchema,
       },
     },
   },
@@ -20,13 +20,17 @@ module.exports = Object.freeze({
       description: 'Insurance Advice Created',
       content: {
         'application/json': {
-          schema: InsuranceAdviceSchema,
+          schema: InsuranceAdvice.InsuranceAdviceSchema,
         },
-        [httpStatus.UNPROCESSABLE_ENTITY]: responses({
-          statusCode: httpStatus.UNPROCESSABLE_ENTITY,
-        }),
       },
+      [httpStatus.UNPROCESSABLE_ENTITY]: {
+        description: 'Insurance Advice Created',
+        content: {
+          'application/json': {
+            schema: InsuranceAdvice.InsuranceAdviceSchema,
+          },
+        },
+      }
     }
   }
 });
-

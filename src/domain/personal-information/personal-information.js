@@ -8,7 +8,9 @@ const MaritalStatuses = Object.freeze({
   Married: 'married',
 });
 
-const UserPersonalInformationSchema = Object.freeze({
+const RiskQuestionsValues = [0, 1];
+
+const PersonalInformationSchema = Object.freeze({
   title: 'User Personal Information',
   properties: {
     age: {
@@ -41,15 +43,24 @@ const UserPersonalInformationSchema = Object.freeze({
       maxItems: 3,
       minItems: 3,
       items: [
-        { type: 'boolean' },
-        { type: 'boolean' },
-        { type: 'boolean' }
+        {
+          type: 'integer',
+          enum: RiskQuestionsValues
+        },
+        {
+          type: 'integer',
+          enum: RiskQuestionsValues
+        },
+        {
+          type: 'integer',
+          enum: RiskQuestionsValues
+        }
       ]
     },
     vehicle: {
       type: 'object',
       properties: {
-        ownership_status: {
+        year: {
           type: 'integer'
         }
       }
@@ -59,7 +70,7 @@ const UserPersonalInformationSchema = Object.freeze({
 });
 
 module.exports = {
-  UserPersonalInformationSchema,
+  PersonalInformationSchema,
   HouseOwnerShipStatuses,
   MaritalStatuses
 };
