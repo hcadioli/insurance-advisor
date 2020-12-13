@@ -1,0 +1,44 @@
+{
+  "name": "insurance-advisor",
+  "version": "1.0.0",
+  "description": "A simple API built with Node.js which provides insurance information",
+  "main": "src/application/api/index.js",
+  "scripts": {
+    "dev": "node -r dotenv/config node_modules/.bin/nodemon src/application/api/index.js",
+    "start": "node src/application/api/index.js",
+    "test": "NODE_ENV=test jest",
+    "coverage": "jest --coverage"
+  },
+  "author": "Henrique Cadioli",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hcadioli/insurance-advisor.git"
+  },
+  "dependencies": {
+    "ajv": "^6.12.6",
+    "bunyan": "^1.8.14",
+    "env-var": "^7.0.0",
+    "http-status-codes": "^2.1.4",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.6"
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6.12"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/coverage/**"
+    ],
+    "testURL": "http://localhost/"
+  }
+}

@@ -1,0 +1,9 @@
+## debugger
+.vscode
+
+## dependencies
+node_modules
+
+package-lock*
+
+.env
