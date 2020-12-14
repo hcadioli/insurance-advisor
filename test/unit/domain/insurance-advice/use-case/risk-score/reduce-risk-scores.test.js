@@ -1,7 +1,7 @@
 const InsuranceAdvice = require('../../../../../../src/domain/insurance-advice');
 
 describe('GetRiskScore', () => {
-  it('Should create ineligible lines', async () => {
+  it('Should reduce risk score collection to final score', () => {
     const riskScoresCollection = {
       baseRiskScore: {
         auto: 1,

@@ -1,17 +1,26 @@
-const InsuranceAdvisor = require('../../insurance-advice');
+const InsuranceAdvice = require('../../insurance-advice');
 
-module.exports = class GetInegibilityByVehicles {
+module.exports = class GetRiskScoreByHouses {
+  isRecent(vehicle) {
+    const { recent } = InsuranceAdvice
+      .VehicleAges;
+    const currentYear = new Date().getFullYear();
+
+    const isRecent = (currentYear - vehicle.year) < recent;
+
+    return isRecent;
+  }
+
   execute(personalInformation) {
     const { vehicle } = personalInformation;
-
-    const inegibilityLines = {
-      auto: InsuranceAdvisor.InsuranceLevels.Ineligible,
+    const riskScoreByHouses = {
+      auto: InsuranceAdvice.RiskScoreUnits.addUnit,
     };
 
     if (Array.isArray(vehicle)) {
-      return !vehicle.length ? inegibilityLines : {};
+      return vehicle.find(this.isRecent) ? riskScoreByHouses : {};
     }
 
-    return !vehicle ? inegibilityLines : {};
+    return this.isRecent(vehicle) ? riskScoreByHouses : {};
   }
 };

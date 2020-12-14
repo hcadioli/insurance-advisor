@@ -1,11 +1,11 @@
-const InsuranceAdvisor = require('../../insurance-advice');
+const InsuranceAdvice = require('../../insurance-advice');
 
 module.exports = class GetInegibilityByHouses {
   execute(personalInformation) {
     const { house } = personalInformation;
 
     const inegibilityLines = {
-      home: InsuranceAdvisor.InsuranceLevels.Ineligible,
+      home: InsuranceAdvice.InsuranceLevels.Ineligible,
     };
 
     if (Array.isArray(house)) {

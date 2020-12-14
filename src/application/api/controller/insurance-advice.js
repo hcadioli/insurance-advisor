@@ -12,6 +12,7 @@ module.exports = class InsuranceAdvice {
   create(ctx) {
     const personalInformation = this.Serializer.PersonalInformation.serialize(ctx.request.body);
     const insuranceAdvice = this.CreateInsuranceAdvice.execute(personalInformation);
+
     ctx.response.status = httpStatus.CREATED;
     ctx.response.body = this.Serializer.InsuranceAdvice.serialize(insuranceAdvice);
   }

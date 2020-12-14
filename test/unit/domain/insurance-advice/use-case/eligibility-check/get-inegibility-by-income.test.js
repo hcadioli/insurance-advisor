@@ -1,7 +1,7 @@
 const InsuranceAdvice = require('../../../../../../src/domain/insurance-advice');
 
 describe('GetIneligibleLinesOfInsurance', () => {
-  it('Should create ineligible lines', async () => {
+  it('Should create ineligible lines', () => {
     const useCase = new InsuranceAdvice.UseCase.EligibilityCheck
       .GetInegibilityByIncome();
 

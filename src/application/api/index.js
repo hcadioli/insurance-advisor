@@ -1,5 +1,3 @@
-/* eslint-disable import/first */
-
 const Koa = require('koa');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
@@ -15,13 +13,13 @@ server.use(bodyParser());
 server.use(errorHandler);
 
 api(server, router)
-    .start(Config.server.port, () => {
-        logger.info(
-            null,
-            `Application is running on port ${Config.server.port}`,
-            {
-                name: Config.server.name,
-                version: Config.server.version,
-            },
-        );
-    });
+  .start(Config.server.port, () => {
+    logger.info(
+      null,
+      `Application is running on port ${Config.server.port}`,
+      {
+        name: Config.server.name,
+        version: Config.server.version,
+      },
+    );
+  });

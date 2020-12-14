@@ -18,7 +18,7 @@ During this project, a few strategic decisions were made regarding technical and
 
 ### Technical considerations
 #### HTTP framework:
-The chosen http framework was Koa due to it's possibility to handle async middlewares. 
+The chosen http framework was Koa due to it's possibility to handle middlewares. 
 This way, it avoids callback hell and it is better to handle errors through try/catch. 
 
 #### Schema validation

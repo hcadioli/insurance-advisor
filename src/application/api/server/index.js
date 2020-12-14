@@ -5,8 +5,7 @@ module.exports = (server, router) => {
   server.use(router.routes());
 
   return {
-    start: async (port, callback) => {
-      return server.listen(port, callback);
-    },
+    start: (port, callback) =>
+      server.listen(port, callback)
   };
 };

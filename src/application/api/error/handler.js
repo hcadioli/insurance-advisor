@@ -8,13 +8,16 @@ async function errorHandler(ctx, next) {
   } catch (error) {
     const handledError = {
       message: error.message,
-      field: error.field,
       values: error.values
     };
 
     if (Adapter.ErrorCodesPerName[error.constructor.name]) {
       handledError.code = Adapter.ErrorCodesPerName[error.constructor.name];
       handledError.status = Adapter.StatusCodePerErrorCode[handledError.code];
+    }
+
+    if (error.field) {
+      handledError.field = error.field;
     }
 
     ctx.response.status = handledError.status || httpStatus.INTERNAL_SERVER_ERROR;

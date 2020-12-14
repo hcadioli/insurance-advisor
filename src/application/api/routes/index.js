@@ -6,4 +6,4 @@ function register(router) {
 
 module.exports = {
   register
-}
+};

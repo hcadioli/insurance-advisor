@@ -2,7 +2,7 @@ const InsuranceAdvice = require('../../../../../../src/domain/insurance-advice')
 const Mock = require('../../../../../mock');
 
 describe('GetRiskScore', () => {
-  it('Should create ineligible lines', async () => {
+  it('Should calculate risk score', () => {
     const riskScoresCollection = {
       baseRiskScore: {
         auto: 1,

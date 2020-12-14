@@ -1,13 +1,27 @@
-const InsuranceAdvisor = require('../../insurance-advice');
+const {
+  IncomeLevels,
+  RiskScoreUnits
+} = require('../../insurance-advice');
 
-module.exports = class GetInegibilityByIncome {
+module.exports = class GetRiskScoreByAge {
+  getRiskScoresBetweenThirtyAndForty(income) {
+    if (IncomeLevels.high <= income) {
+      return {
+        auto: RiskScoreUnits.deductUnit,
+        disability: RiskScoreUnits.deductUnit,
+        home: RiskScoreUnits.deductUnit,
+        life: RiskScoreUnits.deductUnit,
+      };
+    }
+
+    return {};
+  }
+
   execute(personalInformation) {
     const { income } = personalInformation;
 
-    const inegibilityLines = {
-      disability: InsuranceAdvisor.InsuranceLevels.Ineligible,
-    };
+    const adultRiskScore = this.getRiskScoresBetweenThirtyAndForty(income);
 
-    return !income ? inegibilityLines : {};
+    return adultRiskScore;
   }
 };

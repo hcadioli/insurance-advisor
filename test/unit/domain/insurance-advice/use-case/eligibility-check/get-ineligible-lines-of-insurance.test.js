@@ -2,7 +2,7 @@ const InsuranceAdvice = require('../../../../../../src/domain/insurance-advice')
 const Mock = require('../../../../../mock');
 
 describe('GetIneligibleLinesOfInsurance', () => {
-  it('Should create ineligible lines', async () => {
+  it('Should create ineligible lines', () => {
     const ineligibilityByIncome = { disability: 'ineligible' };
     const inegibilityByVehicles = { auto: 'ineligible' };
     const inegibilityByHouses = { home: 'ineligible' };
