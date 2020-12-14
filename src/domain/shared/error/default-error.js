@@ -1,1 +1,1 @@
-module.exports = class DefaultError extends Error {}
+module.exports = class DefaultError extends Error {};

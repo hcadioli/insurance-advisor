@@ -5,6 +5,6 @@ module.exports = function insuranceAdviceRoutes(router) {
   router.post(
     '/insurance-advice',
     SchemaValidator.PersonalInformation.validate,
-    (args) => Container.controller.insuranceAdvice.create(args),
+    (...args) => Container.controller.insuranceAdvice.create(...args),
   );
 };

@@ -1,11 +1,29 @@
 module.exports = class CreateInsuranceAdvice {
-  constructor(params = {}) {
-    this.riskScoreMap = params.riskScoreMap;
+  constructor({
+    CalculateRiskScore,
+    ProcessRiskScoreToInsuranceAdvice,
+    GetIneligibleLinesOfInsurance
+  }) {
+    this.CalculateRiskScore = CalculateRiskScore;
+    this.ProcessRiskScoreToInsuranceAdvice = ProcessRiskScoreToInsuranceAdvice;
+    this.GetIneligibleLinesOfInsurance = GetIneligibleLinesOfInsurance;
   }
 
-  async execute(riskScore) {
-    const insuranceAdvice = this.riskScoreMap;
+  execute(personalInformation) {
+    const riskScores = this
+      .CalculateRiskScore.execute(personalInformation);
+
+    const processedRiskScores = this
+      .ProcessRiskScoreToInsuranceAdvice.execute(riskScores);
+
+    const ineligibleLines = this
+      .GetIneligibleLinesOfInsurance.execute(personalInformation);
+
+    const insuranceAdvice = {
+      ...processedRiskScores,
+      ...ineligibleLines
+    };
 
     return insuranceAdvice;
   }
-}
+};

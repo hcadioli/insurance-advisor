@@ -6,7 +6,7 @@ function createSchemaValidatorBasedOn(referenceSchema, CustomError = InvalidFiel
   const validateData = schemaValidator.compile(referenceSchema);
 
   return {
-    validate: (ctx = {}) => {
+    validate: (ctx, next) => {
       const isValid = validateData(ctx.request.body);
 
       if (!isValid) {
@@ -17,7 +17,7 @@ function createSchemaValidatorBasedOn(referenceSchema, CustomError = InvalidFiel
         );
       }
 
-      return isValid;
+      return next();
     }
   };
 }

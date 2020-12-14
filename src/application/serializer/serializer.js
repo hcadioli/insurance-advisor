@@ -3,9 +3,12 @@ function serializeSingleBasedOn(referenceModel) {
     const domainProperties = Object.keys(referenceModel);
 
     const serializedData = domainProperties.reduce((result, validProperty) => {
+      const serializeName = referenceModel[validProperty]
+        .serializeTo || validProperty;
+
       const incrementedResult = {
         ...result,
-        [validProperty]: toBeSerialized[validProperty]
+        [serializeName]: toBeSerialized[validProperty]
       };
 
       return incrementedResult;

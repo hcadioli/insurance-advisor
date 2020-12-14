@@ -28,7 +28,7 @@ const PersonalInformationSchema = Object.freeze({
           type: 'string',
           enum: Object.values(HouseOwnerShipStatuses),
         }
-      }
+      },
     },
     income: {
       type: 'integer',

@@ -5,6 +5,13 @@ const InsuranceLevels = Object.freeze({
   Regular: 'regular',
 });
 
+const StartRiskScore = Object.freeze({
+  auto: 0,
+  disability: 0,
+  home: 0,
+  life: 0,
+});
+
 const InsuranceAdviceSchema = Object.freeze({
   title: 'Insurance Advice Based on User Personal Information',
   properties: {
@@ -29,5 +36,6 @@ const InsuranceAdviceSchema = Object.freeze({
 
 module.exports = {
   InsuranceLevels,
-  InsuranceAdviceSchema
+  InsuranceAdviceSchema,
+  StartRiskScore
 };
