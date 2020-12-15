@@ -1,33 +1,33 @@
 module.exports = class GetIneligibleLinesOfInsurance {
   constructor({
-    GetInegibilityByIncome,
-    GetInegibilityByVehicles,
-    GetInegibilityByHouses,
-    GetInegibilityByAge,
+    GetIneligibilityByIncome,
+    GetIneligibilityByVehicles,
+    GetIneligibilityByHouses,
+    GetIneligibilityByAge,
   }) {
-    this.GetInegibilityByIncome = GetInegibilityByIncome;
-    this.GetInegibilityByVehicles = GetInegibilityByVehicles;
-    this.GetInegibilityByHouses = GetInegibilityByHouses;
-    this.GetInegibilityByAge = GetInegibilityByAge;
+    this.GetIneligibilityByIncome = GetIneligibilityByIncome;
+    this.GetIneligibilityByVehicles = GetIneligibilityByVehicles;
+    this.GetIneligibilityByHouses = GetIneligibilityByHouses;
+    this.GetIneligibilityByAge = GetIneligibilityByAge;
   }
 
   execute(personalInformation) {
     const ineligibilityByIncome = this
-      .GetInegibilityByIncome.execute(personalInformation);
-    const inegibilityByVehicles = this
-      .GetInegibilityByVehicles.execute(personalInformation);
-    const inegibilityByHouses = this
-      .GetInegibilityByHouses.execute(personalInformation);
-    const inegibilityByAge = this
-      .GetInegibilityByAge.execute(personalInformation);
+      .GetIneligibilityByIncome.execute(personalInformation);
+    const ineligibilityByVehicles = this
+      .GetIneligibilityByVehicles.execute(personalInformation);
+    const ineligibilityByHouses = this
+      .GetIneligibilityByHouses.execute(personalInformation);
+    const ineligibilityByAge = this
+      .GetIneligibilityByAge.execute(personalInformation);
 
-    const inegibilityLines = {
+    const ineligibilityLines = {
       ...ineligibilityByIncome,
-      ...inegibilityByVehicles,
-      ...inegibilityByHouses,
-      ...inegibilityByAge
+      ...ineligibilityByVehicles,
+      ...ineligibilityByHouses,
+      ...ineligibilityByAge
     };
 
-    return inegibilityLines;
+    return ineligibilityLines;
   }
 };

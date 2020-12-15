@@ -1,13 +1,13 @@
 const InsuranceAdvice = require('../../insurance-advice');
 
-module.exports = class GetInegibilityByIncome {
+module.exports = class GetIneligibilityByIncome {
   execute(personalInformation) {
     const { income } = personalInformation;
 
-    const inegibilityLines = {
+    const ineligibilityLines = {
       disability: InsuranceAdvice.InsuranceLevels.Ineligible,
     };
 
-    return !income ? inegibilityLines : {};
+    return !income ? ineligibilityLines : {};
   }
 };

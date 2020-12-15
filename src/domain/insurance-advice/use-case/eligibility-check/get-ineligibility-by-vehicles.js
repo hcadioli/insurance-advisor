@@ -1,17 +1,17 @@
 const InsuranceAdvice = require('../../insurance-advice');
 
-module.exports = class GetInegibilityByVehicles {
+module.exports = class GetIneligibilityByVehicles {
   execute(personalInformation) {
     const { vehicle } = personalInformation;
 
-    const inegibilityLines = {
+    const ineligibilityLines = {
       auto: InsuranceAdvice.InsuranceLevels.Ineligible,
     };
 
     if (Array.isArray(vehicle)) {
-      return !vehicle.length ? inegibilityLines : {};
+      return !vehicle.length ? ineligibilityLines : {};
     }
 
-    return !vehicle ? inegibilityLines : {};
+    return !vehicle ? ineligibilityLines : {};
   }
 };

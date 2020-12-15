@@ -1,9 +1,9 @@
 const InsuranceAdvice = require('../../../../../../src/domain/insurance-advice');
 
-describe('GetInegibilityByAge', () => {
+describe('GetIneligibilityByAge', () => {
   it('Should create ineligible lines when age >= 60', () => {
     const useCase = new InsuranceAdvice.UseCase.EligibilityCheck
-      .GetInegibilityByAge();
+      .GetIneligibilityByAge();
 
     const ineligibleLines = useCase.execute({ age: 65 });
 
@@ -15,7 +15,7 @@ describe('GetInegibilityByAge', () => {
 
   it('Should not create ineligible lines when age < 60', () => {
     const useCase = new InsuranceAdvice.UseCase.EligibilityCheck
-      .GetInegibilityByAge();
+      .GetIneligibilityByAge();
 
     const ineligibleLines = useCase.execute({ age: 59 });
 

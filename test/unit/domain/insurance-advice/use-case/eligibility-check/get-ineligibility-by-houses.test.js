@@ -1,9 +1,9 @@
 const InsuranceAdvice = require('../../../../../../src/domain/insurance-advice');
 
-describe('GetInegibilityByHouses', () => {
+describe('GetIneligibilityByHouses', () => {
   it('Should create ineligible lines when user has no house', () => {
     const useCase = new InsuranceAdvice.UseCase.EligibilityCheck
-      .GetInegibilityByHouses();
+      .GetIneligibilityByHouses();
 
     const ineligibleLines = useCase.execute({});
 
@@ -14,7 +14,7 @@ describe('GetInegibilityByHouses', () => {
 
   it('Should not create ineligible lines when user has house', () => {
     const useCase = new InsuranceAdvice.UseCase.EligibilityCheck
-      .GetInegibilityByHouses();
+      .GetIneligibilityByHouses();
 
     const ineligibleLines = useCase.execute({ house: {} });
 

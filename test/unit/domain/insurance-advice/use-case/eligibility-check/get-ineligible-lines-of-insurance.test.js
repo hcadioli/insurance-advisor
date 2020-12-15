@@ -4,27 +4,27 @@ const Mock = require('../../../../../mock');
 describe('GetIneligibleLinesOfInsurance', () => {
   it('Should create ineligible lines', () => {
     const ineligibilityByIncome = { disability: 'ineligible' };
-    const inegibilityByVehicles = { auto: 'ineligible' };
-    const inegibilityByHouses = { home: 'ineligible' };
-    const inegibilityByAge = {
+    const ineligibilityByVehicles = { auto: 'ineligible' };
+    const ineligibilityByHouses = { home: 'ineligible' };
+    const ineligibilityByAge = {
       disability: 'ineligible',
       life: 'ineligible'
     };
 
-    const GetInegibilityByIncome = Mock
+    const GetIneligibilityByIncome = Mock
       .executeReturnValue(ineligibilityByIncome);
-    const GetInegibilityByVehicles = Mock
-      .executeReturnValue(inegibilityByVehicles);
-    const GetInegibilityByHouses = Mock
-      .executeReturnValue(inegibilityByHouses);
-    const GetInegibilityByAge = Mock
-      .executeReturnValue(inegibilityByAge);
+    const GetIneligibilityByVehicles = Mock
+      .executeReturnValue(ineligibilityByVehicles);
+    const GetIneligibilityByHouses = Mock
+      .executeReturnValue(ineligibilityByHouses);
+    const GetIneligibilityByAge = Mock
+      .executeReturnValue(ineligibilityByAge);
 
     const container = {
-      GetInegibilityByIncome,
-      GetInegibilityByVehicles,
-      GetInegibilityByHouses,
-      GetInegibilityByAge,
+      GetIneligibilityByIncome,
+      GetIneligibilityByVehicles,
+      GetIneligibilityByHouses,
+      GetIneligibilityByAge,
     };
 
     const useCase = new InsuranceAdvice.UseCase.EligibilityCheck
@@ -32,13 +32,13 @@ describe('GetIneligibleLinesOfInsurance', () => {
 
     const ineligibleLines = useCase.execute(Mock.personalInformation);
 
-    expect(GetInegibilityByIncome.execute)
+    expect(GetIneligibilityByIncome.execute)
       .toHaveBeenCalledWith(Mock.personalInformation);
-    expect(GetInegibilityByVehicles.execute)
+    expect(GetIneligibilityByVehicles.execute)
       .toHaveBeenCalledWith(Mock.personalInformation);
-    expect(GetInegibilityByHouses.execute)
+    expect(GetIneligibilityByHouses.execute)
       .toHaveBeenCalledWith(Mock.personalInformation);
-    expect(GetInegibilityByAge.execute)
+    expect(GetIneligibilityByAge.execute)
       .toHaveBeenCalledWith(Mock.personalInformation);
 
     expect(ineligibleLines).toEqual({

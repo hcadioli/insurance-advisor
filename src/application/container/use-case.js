@@ -1,21 +1,21 @@
 const InsuranceAdvice = require('../../domain/insurance-advice');
 
-const GetInegibilityByAge = new InsuranceAdvice.UseCase
-  .EligibilityCheck.GetInegibilityByAge();
-const GetInegibilityByIncome = new InsuranceAdvice.UseCase
-  .EligibilityCheck.GetInegibilityByIncome();
-const GetInegibilityByHouses = new InsuranceAdvice.UseCase
-  .EligibilityCheck.GetInegibilityByHouses();
-const GetInegibilityByVehicles = new InsuranceAdvice.UseCase
-  .EligibilityCheck.GetInegibilityByVehicles();
+const GetIneligibilityByAge = new InsuranceAdvice.UseCase
+  .EligibilityCheck.GetIneligibilityByAge();
+const GetIneligibilityByIncome = new InsuranceAdvice.UseCase
+  .EligibilityCheck.GetIneligibilityByIncome();
+const GetIneligibilityByHouses = new InsuranceAdvice.UseCase
+  .EligibilityCheck.GetIneligibilityByHouses();
+const GetIneligibilityByVehicles = new InsuranceAdvice.UseCase
+  .EligibilityCheck.GetIneligibilityByVehicles();
 
 const GetIneligibleLinesOfInsurance = new InsuranceAdvice.UseCase
   .EligibilityCheck.GetIneligibleLinesOfInsurance(
     {
-      GetInegibilityByIncome,
-      GetInegibilityByVehicles,
-      GetInegibilityByHouses,
-      GetInegibilityByAge,
+      GetIneligibilityByIncome,
+      GetIneligibilityByVehicles,
+      GetIneligibilityByHouses,
+      GetIneligibilityByAge,
     }
   );
 
