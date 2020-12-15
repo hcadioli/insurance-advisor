@@ -80,7 +80,7 @@ Even more, it makes easier to maintain the domain untouched and without applicat
 Finally, one can directly reuse the JSONSchema to generate an [OpenAPI documentation](https://swagger.io/specification/) in the future.
 
 #### Serializer
-The [serializer](https://github.com/hcadioli/insurance-advisor/tree/main/src/application/serializer) is good option to avoid major refactors with breaking changes such as modifying the input request payload
+The [serializer](https://github.com/hcadioli/insurance-advisor/tree/main/src/application/serializer) is good option to avoid major refactors when breaking changes occur. For example, when the frontend changes the input request payload it is easy to manipulate the backend.
 
 ### Business considerations
 
