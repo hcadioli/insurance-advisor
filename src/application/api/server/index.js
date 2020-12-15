@@ -1,11 +1,8 @@
-const routes = require('../routes');
+const { server, router } = require('./app');
+const api = require('./api');
 
-module.exports = (server, router) => {
-  routes.register(router);
-  server.use(router.routes());
-
-  return {
-    start: (port, callback) =>
-      server.listen(port, callback)
-  };
+module.exports = {
+  server,
+  router,
+  api
 };

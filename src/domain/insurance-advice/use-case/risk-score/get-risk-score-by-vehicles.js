@@ -5,8 +5,9 @@ module.exports = class GetRiskScoreByHouses {
     const { recent } = InsuranceAdvice
       .VehicleAges;
     const currentYear = new Date().getFullYear();
+    const vehicleYear = vehicle && vehicle.year;
 
-    const isRecent = (currentYear - vehicle.year) < recent;
+    const isRecent = (currentYear - vehicleYear) < recent;
 
     return isRecent;
   }

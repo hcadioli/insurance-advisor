@@ -4,8 +4,9 @@ module.exports = class GetRiskScoreByHouses {
   isMortgaged(house) {
     const { mortgaged } = InsuranceAdvice
       .HouseOwnerShipStatuses;
+    const houseOwnerShipStatus = house && house.ownership_status;
 
-    return house.ownership_status === mortgaged;
+    return houseOwnerShipStatus === mortgaged;
   }
 
   execute(personalInformation) {
