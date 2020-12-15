@@ -77,7 +77,7 @@ For example, it avoids callback hell and it is better to handle errors through t
 The main reason to choose Ajv as an input validator is that it allows you to validate an agnostic JSONSchema.
 Which means that with a standard [JSONSchema](http://json-schema.org/draft/2019-09/json-schema-core.html) one can validate the request body.
 Even more, it makes easier to maintain the domain untouched and without application rules.
-Finally, one can directly reuse the JSONSchema to generate an [OpenAPI documentation](https://swagger.io/specification/).
+Finally, one can directly reuse the JSONSchema to generate an [OpenAPI documentation](https://swagger.io/specification/) in the future.
 
 #### Serializer
 The [serializer](https://github.com/hcadioli/insurance-advisor/tree/main/src/application/serializer) is good option to avoid major refactors with breaking changes such as modifying the input request payload
@@ -99,7 +99,7 @@ Each line of the insurance advice is composed by insurance categories which can 
 The actions to determine an insurance advice are:
 - Calculate risk scores based on user personal information;
 - Process risk scores to obtain the insurance lines;
-- Add ineligile lines (if they exist);
+- Add ineligible lines (if they exist);
 
 Based on those results, it is possible to assemble the final insurance advice structure to that user.
 
@@ -107,12 +107,12 @@ Based on those results, it is possible to assemble the final insurance advice st
 ## Testing the application
 First be sure not to have anything running on PORT 3000:
 
-If needed, run:
+If needed, you can run:
 ```
 fuser -k 3000/tcp
 ```
 
-Than, run test command:
+Than, run the test command:
 ```
 npm test
 ```
